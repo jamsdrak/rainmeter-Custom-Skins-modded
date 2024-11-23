@@ -1,0 +1,194 @@
+; -------------------------- start HWiNFO GRAB VALUE FROM REGISTRY -------------------------
+
+;---------------------- TEMPERATURE
+[Measure1Sensor]
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=Sensor2
+
+[Measure1Label]
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=Label2
+
+[Measure1ValueFormatted]
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=Value2
+
+[Measure1ValueRaw]
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw2
+;--------------------------  GPU LOAD
+[Measure2Sensor]
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=Sensor3
+
+[Measure2Label]
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=Label3
+
+[Measure2ValueFormatted]
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=Value3
+
+[Measure2ValueRaw]
+Measure=Registry
+RegHKey=HKEY_CURRENT_USER
+RegKey=SOFTWARE\HWiNFO64\VSB
+RegValue=ValueRaw3
+
+
+
+; -------------------------- Getiing old Grap to new graph -------------------------
+
+; TenSystem for Rainmeter - GPU Widget
+; Common back-end code
+; Version 4.1.3
+
+[MeasureGPU]
+ ; This measures the usage of the GPU.
+ ; As Rainmeter doesn't have a native GPU measure, 
+ ; the UsageMonitor plugin is used for this purpose to obtain the values from Performance Monitor (PerfMon)
+ ; Index is set to 0 to return total of GPU usage across all processes.
+ ; This requires Windows 10 Fall Creators Update (version 1709) or later to work.
+ Measure=Plugin
+ Plugin=UsageMonitor
+ Alias=GPU
+ Index=0
+
+
+
+------------------------------------------
+[Rainmeter]
+Author=Demented@live.ca
+
+;Metadata added by RainBrowser
+;http://rainmeter.net/RainWiki/index.php?title=Rainmeter_101#.5BMetadata.5D
+
+[Metadata]
+Name=
+Config=
+Description=
+Instructions=
+Version=
+Tags=
+License=
+Variant=
+Preview=
+
+;End of added Metadata
+
+[Variables]
+color=255, 255, 255, 220
+color2=255, 255, 255, 200
+graph.line=255, 0, 0, 255
+graph.line2=255, 255, 255, 50
+font=Plantagenet Cherokee
+------------------------------------------
+Measures
+
+[MeasureAlways]
+Measure=FreeDiskSpace
+Drive=C:
+Total=1
+MaxValue=1
+MinValue=0
+UpdateDivider=86400
+
+[MeasureCPUMHz]
+Measure=Plugin
+Plugin=Plugins\PowerPlugin.dll
+PowerState=MHZ
+
+[MeasureCPU]
+Measure=CPU
+------------------------------------------
+CPU Display
+
+[CPUGraph1]
+Meter=line
+MeasureName=MeasureGPU
+X=0
+Y=30
+H=30
+W=100
+LineCount=1
+LineColor=#graph.line#
+AntiAlias=1
+
+[CPUGraph2]
+Meter=HISTOGRAM
+MeasureName=MeasureGPU
+X=0r
+Y=0r
+H=29
+W=100
+PrimaryColor=#graph.line2#
+AntiAlias=1
+
+[CPULabel]
+Meter=STRING
+X=152
+Y=42
+FontColor=#color#
+FontFace=#font#
+FontSize=12
+StringAlign=Left
+StringStyle=BOLD
+Text="GPU"
+AntiAlias=1
+
+[CPU]
+Meter=STRING
+MeasureName=Measure2ValueRaw
+X=120
+Y=42
+FontColor=#color#
+FontFace=#Font#
+FontSize=11
+StringAlign=center
+StringStyle=BOLD
+;AntiAlias=1
+Text="%1%"
+
+[GPU.Temp]
+Meter=STRING
+MeasureName=Measure1ValueFormatted
+X=174
+Y=59
+FontColor=#color#
+FontSize=9
+FontFace=#Font#
+StringAlign=Center
+StringStyle=Bold
+AntiAlias=1
+
+[MonitorCPUBackground]
+Meter=IMAGE
+SolidColor=#graph.line2#
+X=142
+Y=20
+W=5
+H=55
+
+[MonitorCPUBar]
+MeasureName=MeasureGPU
+Meter=BAR
+X=r
+Y=r
+W=5
+H=55
+BarColor=#graph.line#
+BarOrientation=VERTICAL
