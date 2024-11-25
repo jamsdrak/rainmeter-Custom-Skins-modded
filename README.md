@@ -15,13 +15,13 @@ For this minimalist System monitor i use with HWINFO for the data, i have been u
 
 The edits codes may be not clean i just modded over the original, it may have leftovers of the original that is not require or doesn't do anything.
 
-*******ColdSys = for GPUGraph.ini / i use this one to get the samples for the code to retrieve info from HWINFO
+****ColdSys = for GPUGraph.ini / i use this one to get the samples for the code to retrieve info from HWINFO
 https://www.deviantart.com/asenv/art/ColdSys-978489383
 
-*******StraightV1.0 = for CPU straight.ini / RAM straight.ini / Network TrafficDualSided.ini
+****StraightV1.0 = for CPU straight.ini / RAM straight.ini / Network TrafficDualSided.ini
 https://visualskins.com/skin/straightv10
 
-******illustro = for Disk.ini
+****Illustro = for Disk.ini
 https://vsthemes.org/en/skins/rainmeter/25714-illustro-pro.html
 
 if anyone can have a look at this and help thanks.
