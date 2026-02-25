@@ -4,14 +4,13 @@ minimalist system monitor
 
 https://imgur.com/a/PTY7I8O Post varios samples
 
-is not perfect
-
-The problem i had is that the line graph doesn't follow the bar meter in the CPU or GPU, also the percentage with the line nor the bar fully match.
-also the disks list the last one had to inversed them or they will not link correctly.
++ Added vRAM load Graph, and fix the other
 
 I like this system monitor over others like NZXT CAM uses 150Mb memory, because this only use 55Mb memory in total (22mb rainmeter/33Mb HWINFO i habe disable all other sensors that i dont need)
 
 For this minimalist System monitor i use with HWINFO for the data, i have been using this for a long time, the links downloads i just google search them for the 3 skins i have been using.
+
+Enable sensors in HWINFO -> configure sensor -> Gadget (enable report value of the disare sensor) -> check index code -> Add it to the respective value
 
 The edits codes may be not clean i just modded over the original, it may have leftovers of the original that is not require or doesn't do anything.
 
